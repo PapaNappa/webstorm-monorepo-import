@@ -2,26 +2,26 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
 
-## Development server
+## Reproduce
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```
+ng new --createApplication=false webstorm-monorepo-import
+cd webstorm-monorepo-import
+ng g library lib1
+ng g library lib2
+```
 
-## Code scaffolding
+(Optional): Include an `@scope/` prefix in the package names to test the behaviour with scopes (currently there is no difference).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Finally, build lib1:
 
-## Build
+```
+npm run build:lib1
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Expected behaviour
 
-## Running unit tests
+Auto-import of `Lib1Service` in `lib2.service.ts` uses `@scope/lib1`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This import path is already recognised by Webstorm, see the import of `Lib1Module` in `lib2.module.ts`.
+Only the auto-import uses relative paths.
