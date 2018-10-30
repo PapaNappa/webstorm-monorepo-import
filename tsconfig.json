@@ -19,16 +19,16 @@
     ],
     "paths": {
       "@scope/lib1": [
-        "dist/lib1"
+        "projects/lib1"
       ],
       "@scope/lib1/*": [
-        "dist/lib1/*"
+        "projects/lib1/*"
       ],
       "@scope/lib2": [
-        "dist/lib2"
+        "projects/lib2"
       ],
       "@scope/lib2/*": [
-        "dist/lib2/*"
+        "projects/lib2/*"
       ]
     }
   }
